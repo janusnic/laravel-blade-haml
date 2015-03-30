@@ -66,7 +66,7 @@ The Blade Syntax for a sample login view:
 @stop
 ```
 
-becomes now with Laravel Blade Haml:
+becomes now with Laravel-Blade-Haml:
 
 ```haml
 @extends('layouts.master')
@@ -89,7 +89,9 @@ becomes now with Laravel Blade Haml:
 @stop
 ```
 
-## Contributions
+pretty neat, isn't it? All the good Blade stuff is still available inside your new template files.
+
+## Contributions + Credits
 
 Thanks [Robert Reinhard](https://github.com/bkwld/laravel-haml) for the initial source-code.
 
