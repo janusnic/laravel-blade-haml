@@ -7,7 +7,7 @@ A small package that adds support for compiling Blade Style Haml templates to La
 
 1. Add it to your composer.json (`"trupedia/laravel-blade-haml": "~1.0"`) and do a composer install.
 
-2. Add the service provider to your app.php config file providers: `'trupedia\LaravelBladeHaml\ServiceProvider',`
+2. Add the service provider to your app.php config file providers: `'trupedia\LaravelBladeHaml\LaravelBladeHamlServiceProvider',`
 
 
 
@@ -32,6 +32,60 @@ Laravel-Haml registers the ".haml.php" extension with Laravel and forwards compi
 In other words, just put your Haml files in the regular resources/views directory and name them like "resources/views/home/whatever.haml.php".  You reference them in Laravel like normal: `view('home.whatever')`.
 
 The Haml view files can work side-by-side with regular PHP views.
+
+The Blade Syntax for a sample login view:
+
+```html
+    @extends('layouts.master')
+    
+    @section('content')
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+    
+            @include('layouts.partials.errors')
+    
+            <h1>Sign In!</h1>
+    
+            {!! Form::open(['route' => 'login']) !!}
+                <div class="form-group">
+                    {!! Form::label('email', 'E-Mail:') !!}
+                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('password', 'Password:') !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
+                </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
+    @stop
+```
+
+becomes now with Laravel Blade Haml:
+
+```html
+    @extends('layouts.master')
+    
+    @section('content')
+    .row
+        .col-md-4.col-md-offset-4
+            @include('layouts.partials.errors')
+            %h1 Sign In!
+            {!! Form::open(['route' => 'login']) !!}
+            .form-group
+                {!! Form::label('email', 'E-Mail:') !!}
+                {!! Form::text('email', null, ['class' => 'form-control']) !!}
+            .form-group
+                {!! Form::label('password', 'Password:') !!}
+                {!! Form::password('password', ['class' => 'form-control']) !!}
+            .form-group
+                {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
+                {!! Form::close() !!}
+@stop
+```
 
 ## Contributions
 

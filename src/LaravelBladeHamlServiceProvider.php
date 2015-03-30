@@ -4,7 +4,7 @@
 use MtHaml;
 use Illuminate\View\Engines\CompilerEngine;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider {
+class LaravelBladeHamlServiceProvider extends \Illuminate\Support\ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
