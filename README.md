@@ -1,0 +1,42 @@
+# Laravel Blade Haml
+
+A small package that adds support for compiling Blade Style Haml templates to Laravel 5 via [MtHaml](https://github.com/arnaud-lb/MtHaml).
+
+
+## Installation
+
+1. Add it to your composer.json (`"trupedia/laravel-blade-haml": "~1.0"`) and do a composer install.
+
+2. Add the service provider to your app.php config file providers: `'trupedia\LaravelBladeHaml\ServiceProvider',`
+
+
+
+## Configuration
+
+You can set [MtHaml](https://github.com/arnaud-lb/MtHaml) environment, options, and filters manually.  To do so, publish the config file with `php artisan vendor:publish` and edit it at /config/blade-haml.php.  For instance, to turn off auto-escaping:
+
+	'mthaml' => array(
+		'environment' => 'php',
+		'options' => array(
+			'enable_escaper' => false,
+		),
+		'filters' => array(),
+	), 
+
+
+
+## Usage
+
+Laravel-Haml registers the ".haml.php" extension with Laravel and forwards compile requests on to MtHaml.  It compiles your Haml templates in the same way as Blade templates; the compiled template is put in app/storage/views.  Thus, you don't suffer compile times on every page load.
+
+In other words, just put your Haml files in the regular resources/views directory and name them like "resources/views/home/whatever.haml.php".  You reference them in Laravel like normal: `view('home.whatever')`.
+
+The Haml view files can work side-by-side with regular PHP views.
+
+## Contributions
+
+Thanks [Robert Reinhard](https://github.com/bkwld/laravel-haml) for the initial source-code.
+
+## Release notes
+
+- 1.0 - Initial Release
