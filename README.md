@@ -36,54 +36,54 @@ The Haml view files can work side-by-side with regular PHP views.
 The Blade Syntax for a sample login view:
 
 ```html
-    @extends('layouts.master')
-    
-    @section('content')
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-    
-            @include('layouts.partials.errors')
-    
-            <h1>Sign In!</h1>
-    
-            {!! Form::open(['route' => 'login']) !!}
-                <div class="form-group">
-                    {!! Form::label('email', 'E-Mail:') !!}
-                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('password', 'Password:') !!}
-                    {!! Form::password('password', ['class' => 'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
-                </div>
-            {!! Form::close() !!}
-        </div>
+@extends('layouts.master')
+
+@section('content')
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+
+        @include('layouts.partials.errors')
+
+        <h1>Sign In!</h1>
+
+        {!! Form::open(['route' => 'login']) !!}
+            <div class="form-group">
+                {!! Form::label('email', 'E-Mail:') !!}
+                {!! Form::text('email', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('password', 'Password:') !!}
+                {!! Form::password('password', ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
+            </div>
+        {!! Form::close() !!}
     </div>
-    @stop
+</div>
+@stop
 ```
 
 becomes now with Laravel Blade Haml:
 
-```html
-    @extends('layouts.master')
-    
-    @section('content')
-    .row
-        .col-md-4.col-md-offset-4
-            @include('layouts.partials.errors')
-            %h1 Sign In!
-            {!! Form::open(['route' => 'login']) !!}
-            .form-group
-                {!! Form::label('email', 'E-Mail:') !!}
-                {!! Form::text('email', null, ['class' => 'form-control']) !!}
-            .form-group
-                {!! Form::label('password', 'Password:') !!}
-                {!! Form::password('password', ['class' => 'form-control']) !!}
-            .form-group
-                {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
-                {!! Form::close() !!}
+```haml
+@extends('layouts.master')
+
+@section('content')
+.row
+    .col-md-4.col-md-offset-4
+        @include('layouts.partials.errors')
+        %h1 Sign In!
+        {!! Form::open(['route' => 'login']) !!}
+        .form-group
+            {!! Form::label('email', 'E-Mail:') !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
+        .form-group
+            {!! Form::label('password', 'Password:') !!}
+            {!! Form::password('password', ['class' => 'form-control']) !!}
+        .form-group
+            {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
 @stop
 ```
 
