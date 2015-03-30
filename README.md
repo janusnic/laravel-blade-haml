@@ -1,4 +1,7 @@
-# Laravel Blade Haml
+# Laravel Blade Haml 
+
+[![Total Downloads](https://poser.pugx.org/trupedia/laravel-blade-haml/downloads.svg)](https://packagist.org/packages/trupedia/laravel-blade-haml)
+[![License](https://poser.pugx.org/trupedia/laravel-blade-haml/license.svg)](https://packagist.org/packages/trupedia/laravel-blade-haml/)
 
 A small package that adds support for compiling Blade Style Haml templates to Laravel 5 via [MtHaml](https://github.com/arnaud-lb/MtHaml).
 
