@@ -7,7 +7,9 @@ A small package that adds support for compiling Blade Style Haml templates to La
 
 1. Add it to your composer.json (`"trupedia/laravel-blade-haml": "~1.0"`) and do a composer install.
 
-2. Add the service provider to your app.php config file providers: `'trupedia\LaravelBladeHaml\LaravelBladeHamlServiceProvider',`
+2. Add the service provider to your app.php config file providers: 
+
+`'trupedia\LaravelBladeHaml\LaravelBladeHamlServiceProvider',`
 
 
 
@@ -27,7 +29,7 @@ You can set [MtHaml](https://github.com/arnaud-lb/MtHaml) environment, options, 
 
 ## Usage
 
-Laravel-Haml registers the ".haml.php" extension with Laravel and forwards compile requests on to MtHaml.  It compiles your Haml templates in the same way as Blade templates; the compiled template is put in app/storage/views.  Thus, you don't suffer compile times on every page load.
+Laravel-Blade-Haml registers the ".haml.php" extension with Laravel and forwards compile requests on to MtHaml.  It compiles your Haml templates in the same way as Blade templates; the compiled template is put in app/storage/views.  Thus, you don't suffer compile times on every page load.
 
 In other words, just put your Haml files in the regular resources/views directory and name them like "resources/views/home/whatever.haml.php".  You reference them in Laravel like normal: `view('home.whatever')`.
 
@@ -83,7 +85,7 @@ becomes now with Laravel Blade Haml:
             {!! Form::password('password', ['class' => 'form-control']) !!}
         .form-group
             {!! Form::submit('Sign In', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}
+        {!! Form::close() !!}
 @stop
 ```
 

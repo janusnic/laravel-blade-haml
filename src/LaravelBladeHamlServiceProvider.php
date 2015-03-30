@@ -23,8 +23,13 @@ class LaravelBladeHamlServiceProvider extends \Illuminate\Support\ServiceProvide
 		// Bind the Haml compiler
 		$this->app->singleton('haml.compiler', function($app) {
 
-			// Instantiate MtHaml, the brains of the operation
-			$mthaml = new MtHaml\Environment(config('blade-haml.mthaml.environment'), config('blade-haml.mthaml.options'), config('blade-haml.mthaml.filters'));
+            $environment = config('blade-haml.mthaml.environment');
+
+            if(is_null($environment))
+                throw new Exception('Please publish the config file via: php artisan vendor:publish');
+
+            // Instantiate MtHaml, the brains of the operation
+            $mthaml = new MtHaml\Environment($environment, config('blade-haml.mthaml.options'), config('blade-haml.mthaml.filters'));
 
 			// Instantiate our Laravel-style compiler
 			$cache = $app['config']['view.compiled'];
